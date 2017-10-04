@@ -1,0 +1,67 @@
+1. Enter into hbase shell
+./bin/hbase shell
+
+2. List is a command used to get the list of all the tables in HBase.
+
+hbase(main):009:0> list
+hbase(main):009:0> status
+hbase(main):010:0> version
+hbase(main):02:0> table_help
+hbase(main):024:0> exists 'emp'
+
+
+3. Create table 
+
+create ‘<table name>’,’<column family>’ 
+
+
+hbase(main):002:0> create 'emp', 'personal data', 'professional data'
+hbase> describe ‘emp’
+
+4. Insert records into the table.
+hbase(main):005:0> put ’<table name>’,’row1’,’<colfamily:colname>’,’<value>’
+hbase(main):005:0> put 'emp','1','personal data:name','raju'
+
+
+5. Update the records in the table.
+
+hbase(main):002:0> put ‘table name’,’row ’,'Column family:column name',’new value’
+hbase(main):002:0> put 'emp','row1','personal:city','Delhi'
+
+
+6. Read the records from the table
+hbase(main):006:0> scan 'emp'
+hbase(main):006:0> get ’<table name>’,’row1’
+hbase(main):012:0> get 'emp', '1'
+hbase(main):012:)> get 'table name', ‘rowid’, {COLUMN ⇒ ‘column family:column name ’}
+hbase(main):015:0> get 'emp', 'row1', {COLUMN ⇒ 'personal:name'}
+
+7. Deleting a Specific Cell in a Table
+hbase(main):006:0> delete ‘<table name>’, ‘<row>’, ‘<column name >’, ‘<time stamp>’
+hbase(main):006:0> delete 'emp', '1', 'personal data:city', 1417521848375
+hbase(main):007:0> deleteall ‘<table name>’, ‘<row>’
+hbase(main):007:0> deleteall 'emp','1'
+
+8. Alter the table.
+ - Changing the Maximum Number of Cells of a Column Family.
+   hbase> alter 't1', NAME ⇒ 'f1', VERSIONS ⇒ 5
+ - Make the table as readonly
+   hbase>alter 't1', READONLY
+ - Delete a column family
+   hbase> alter ‘ table name ’, ‘delete’ ⇒ ‘ column family ’ 
+
+
+9. Delete table
+To delete a table or change its settings, you need to first disable the table using the disable command. You can re-enable it using the enable command.
+hbase(main):025:0> disable 'emp'
+hbase> is_disabled 'table name'
+hbase> disable_all 'r.*'
+hbase(main):005:0> enable 'emp'
+hbase(main):019:0> drop 'emp'
+hbase> truncate 'table name'
+
+10. Basic commands
+
+hbase(main):023:0> count 'emp'
+
+
