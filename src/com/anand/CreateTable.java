@@ -20,7 +20,7 @@ public class CreateTable {
 	      HBaseAdmin admin = new HBaseAdmin(con);
 
 	      // Instantiating table descriptor class
-	      HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("emp1"));
+	      HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("emp"));
 
 	      // Adding column families to table descriptor
 	      tableDescriptor.addFamily(new HColumnDescriptor("personal"));

@@ -26,7 +26,7 @@ public class AlterTable {
 	      System.out.println("coloumn added");
 	      
 	      // Deleting a column family
-	      admin.deleteColumn("employee","contactDetails");
+	      admin.deleteColumn("emp","contactDetails");
 	      System.out.println("coloumn deleted"); 
 	      
 	     // disabling table named emp

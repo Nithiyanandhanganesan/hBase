@@ -65,3 +65,41 @@ hbase> truncate 'table name'
 hbase(main):023:0> count 'emp'
 
 
+===========================================================
+
+To create data in an HBase table. To create data in an HBase table, the following commands and methods are used:
+
+put command,
+add() method of Put class, and
+put() method of HTable class.
+
+1. Use put() command to load data into the table.
+   put ’<table name>’,’row1’,’<colfamily:colname>’,’<value>’
+
+   put 'emp','1','personal:name','anand'
+   put 'emp','1','personal:city','chennai'
+   put 'emp','1','professional:designation','developer'
+
+2. Scan the table.
+    scan 'emp'
+
+3. Update record in the table.
+   put ‘table name’,’row ’,'Column family:column name',’new value’
+   put 'emp','1','personal:city','Delhi'
+
+4. Read record from the table.
+   get ’<table name>’,’row1’
+   get 'emp','1'
+
+5. Read specific column
+   get 'table name', ‘rowid’, {COLUMN ⇒ ‘column family:column name ’}
+   get 'emp', '1', {COLUMN => 'personal:name'}
+   get 'emp', '1', {COLUMN => 'personal'}
+
+
+6. Delete a specific cell in table.
+   delete ‘<table name>’, ‘<row>’, ‘<column name >’, ‘<time stamp>’
+   delete 'emp', '1', 'personal data:city'
+
+7. Deleting All Cells in a Table
+   deleteall ‘<table name>’, ‘<row>’

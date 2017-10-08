@@ -35,7 +35,7 @@ public class ListTable {
 	      System.out.println(bool2);
 
 	      // Disabling the table using HBaseAdmin object
-	      if(!bool){
+	      if(!bool2){
 	         admin.disableTable("emp");
 	         System.out.println("Table disabled");
 	      }
